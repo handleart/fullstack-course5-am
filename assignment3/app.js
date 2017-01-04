@@ -95,13 +95,15 @@ function MenuSearchService($http, ApiBasePath) {
           var name = results[i].name;
 
           //console.log(name.toLowerCase().indexOf("won"));
-          if (name.toLowerCase().indexOf(searchTerm) != -1) {
+          if (name.toLowerCase().indexOf(searchTerm) != -1 && found.indexOf(found) == -1) {
+
               found.push(name);
           }
         }
       }
 
-      //console.log('found stuff', found);
+
+      console.log('found stuff', found);
       return found;
 
 
