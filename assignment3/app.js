@@ -101,7 +101,7 @@ function MenuSearchService($http, ApiBasePath) {
         }
       }
 
-      console.log('found stuff', found);
+      //console.log('found stuff', found);
       return found;
 
 
