@@ -1,0 +1,61 @@
+<div class="container" ng-controller="SignUpController as signUp">
+  <fieldset>
+      <legend>Sign-up</legend>
+
+        <form name='signUpForm' novalidate>
+          <span ng-show="submitted && signUpForm.email.$invalid">
+              Please fix. A valid favorite item is required!
+        </span>
+        <input type="text" name="firstName" placeholder="First name"
+          ng-model="signup.user.firstname"
+          required>
+          <span ng-if="signUpForm.firstName.$error.required && signUpForm.firstName.$touched">
+            First Name is required!
+          </span>
+
+      </input><br>
+        <input type="text" name="lastName" placeholder="Last name"
+          ng-model="signup.user.lastname"
+          required>
+          <span ng-if="signUpForm.lastName.$error.required && signUpForm.lastName.$touched">
+            Last Name is required!
+          </span>
+        </input><br>
+        <input type="email" name="email" placeholder="Email"
+          ng-model="signup.user.email"
+          required>
+          <span ng-if="signUpForm.email.$invalid && signUpForm.email.$touched">
+              Must be a valid email address: handle@domain format
+          </span>
+        </input><br>
+        <input type="phone" name="phone" placeholder="Phone"
+          ng-model="signup.user.phone"
+          required
+          pattern="(\d{3})-(\d{3})-(\d{4})"
+          >
+          <span ng-if="signUpForm.phone.$invalid && signUpForm.phone.$touched">
+            Phone must be in the format ###-###-####.
+          </span>
+        </input><br>
+        <input type="text" name="favoriteItem" placeholder="Favorite Menu Item"
+          ng-model="signup.user.favoriteItem"
+          required
+          valid-category-directive>
+          <span ng-if="(signUpForm.favoriteItem.$error.required || signUpForm.favoriteItem.$invalid) && signUpForm.favoriteItem.$touched" >
+            Valid favorite item is required!
+          </span>
+        </input><br>
+        <button
+                ng-disabled="signUpForm.$invalid"
+                ng-click="signUp.submit(signup.user)">Submit</button>
+</form>
+
+</fieldset>
+  <!-- <div  ng-if="signUp.completed">
+        Username: {{ signup.user.firstname}} <br>
+        Username: {{ signup.user.lastname}} <br>
+        Email: {{ signUp.user.email}} <br>
+        Phone: {{ signUp.user.phone }} <br>
+        Favorite: {{ signUp.user.favoriteItem }}
+  </div> -->
+</div>

@@ -1,0 +1,30 @@
+<div class="container" ng-controller="SignUpController as signUp">
+  <fieldset>
+      <legend>Your information</legend>
+      <div class="info" ng-if="!info.SignedUp"><center>
+        Not Signed Up Yet. <a ui-sref="public.signup">Sign up Now!</a></center>
+      </div>
+      <div class="info" ng-if="info.SignedUp">
+        <center>
+            First Name: {{ info.user.firstname}} <br>
+            Last Name: {{ info.user.lastname}} <br>
+            Email: {{ info.user.email}} <br>
+            Phone: {{ info.user.phone }} <br>
+            Your Favorite Item: {{ info.user.favoriteItem }}
+
+
+
+
+
+        </center>
+        <br>
+        <br>
+        <menu-item menu-item="info.menuItem">
+        </menu-item>
+      </div>
+
+
+
+
+</fieldset>
+</div>
