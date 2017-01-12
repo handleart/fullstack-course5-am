@@ -20,13 +20,13 @@
            // call to some API that returns { isValid: true } or { isValid: false }
              var data = MenuService.getSpecificMenuItems(value).then(function(data) {
                 //console.log(data != 0);
-                if (typeof data === "undefined") {
-                  ctrl.$setValidity('validCategoryDirective', false);
-                } else {
+                if (data) {
                   ctrl.$setValidity('validCategoryDirective', true);
+                } else {
+                  ctrl.$setValidity('validCategoryDirective', false);
                 };
 
-             });
+              });
              }, 200);
            }
          })

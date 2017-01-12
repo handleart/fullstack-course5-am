@@ -13,7 +13,7 @@ function SignUpController(SignUpService, MenuService, $state) {
     value = user.favoriteItem;
     var data = MenuService.getSpecificMenuItems(value).then(function(data) {
 
-
+      // console.log('test', data);
       if (data) {
         SignUpService.setSignUpInformation(user);
         signup.completed = true;
